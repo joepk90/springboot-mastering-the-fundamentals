@@ -9,12 +9,11 @@ public class HomeController {
     @RequestMapping("/")
     public String index() {
         String viewName = getViewName();
-        System.out.println(viewName);
         return viewName;
     }
 
     private String getViewName() {
-        return "index";
+        return "index.html";
     }
     
 }
