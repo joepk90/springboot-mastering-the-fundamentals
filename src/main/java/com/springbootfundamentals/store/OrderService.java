@@ -1,5 +1,8 @@
 package com.springbootfundamentals.store;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class OrderService {
     private PaymentService paymentService;
     
