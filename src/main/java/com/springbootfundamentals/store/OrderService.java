@@ -1,5 +1,6 @@
 package com.springbootfundamentals.store;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 // import org.springframework.beans.factory.annotation.Autowired;
 
@@ -12,7 +13,8 @@ public class OrderService {
     // public OrderService() {}
 
     // @Autowired
-    public OrderService(PaymentService paymentService) {
+    // Qualifier used to in scenerios where we want a specific implemtation 
+    public OrderService(@Qualifier("paypal") PaymentService paymentService) {
         this.paymentService = paymentService;
     }
 
