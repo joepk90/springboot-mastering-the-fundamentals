@@ -1,5 +1,8 @@
 package com.springbootfundamentals.store;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+
 // import org.springframework.beans.factory.annotation.Qualifier;
 // import org.springframework.stereotype.Service;
 // import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +24,19 @@ public class OrderService {
         // this will be run every time the OrderService class requested because it is a prototype
         System.out.println("OrderService created"); 
     }
+
+    // post construct lifecycle hook: runs just after the construct method (method name can be anything)
+    @PostConstruct
+    public void init() {
+        System.out.println("OrderService PostConstruct");
+    }
+
+    // pre destroy lifecycle hook: runs just before the object is destroyed (method name can be anything)
+    @PreDestroy
+    public void cleanup() {
+        System.out.println("OrderService PreDestroy");
+    }
+    
 
     public void placeOrder() {
         paymentService.processPayment(10);
