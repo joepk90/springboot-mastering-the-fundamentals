@@ -17,6 +17,9 @@ public class OrderService {
     // OrderService(Qualifier("stripe") PaymentService paymentService) {}
     public OrderService(PaymentService paymentService) {
         this.paymentService = paymentService;
+
+        // this only appears once because the OrderService class is a singleton
+        System.out.println("OrderService created"); 
     }
 
     public void placeOrder() {

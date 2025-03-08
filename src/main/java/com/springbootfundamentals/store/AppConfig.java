@@ -43,3 +43,11 @@ public class AppConfig {
         return new OrderService(paypal());
     }
 }
+
+/**
+ * Bean Scopes
+ * 
+ * - Singleton (default):
+ *   only one instance of the bean (resource) is created per container (app instance)
+ * 
+ */
