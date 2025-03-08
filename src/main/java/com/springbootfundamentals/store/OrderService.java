@@ -14,7 +14,7 @@ public class OrderService {
 
     // @Autowired
     // Qualifier used to in scenerios where we want a specific implemtation 
-    public OrderService(@Qualifier("paypal") PaymentService paymentService) {
+    public OrderService(@Qualifier("stripe") PaymentService paymentService) {
         this.paymentService = paymentService;
     }
 
