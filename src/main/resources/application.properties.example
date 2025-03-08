@@ -1,0 +1,11 @@
+# the application.properties file 
+# - if application.yaml exists, the application.yaml file will take prioerity
+
+# spring.application.name=store
+# # server.port=8081 # default springboot property
+
+# # custom property
+# stripe.apiUrl=https://api.stripe.com
+# stripe.enabled=true
+# stripe.timeout=1000
+# stripe.supported-currencies=USD,EUR,GBP
