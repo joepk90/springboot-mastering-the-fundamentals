@@ -55,4 +55,14 @@ public class AppConfig {
  * - Prototype:
  *   a new instance of the bean (resource) is created every time it is requested from the IOC container
  *     - useful for components that hold state or are used temporarily
+ * 
+ * - Request:
+ *   a new instance of the bean (resource) is created on each http request - so the bean
+ *   exists only for the duration of the https request
+ *   - useful for storing request specific data in web applications
+ * 
+ * - Session:
+ *   a new instance of the bean (resource) is created on each http session - so the bean
+ *   exists only for the duration of the https session
+ * 
  */
