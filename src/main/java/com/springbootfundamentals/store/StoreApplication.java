@@ -13,7 +13,11 @@ public class StoreApplication {
 		OrderService.placeOrder();
 
 		var NotificationManager = context.getBean(NotificationManager.class);
-		NotificationManager.sendNotification("This is a test");		
+		NotificationManager.sendNotification("This is a test");	
+		
+		// by applying the @Lazy annotation to the class, and requesting the resource here
+		// the resource is created later, when it is actually needed
+		context.getBean(HeavyResource.class);
 	}
 
 }
