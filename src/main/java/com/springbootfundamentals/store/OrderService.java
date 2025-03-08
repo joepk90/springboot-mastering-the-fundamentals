@@ -18,7 +18,7 @@ public class OrderService {
     public OrderService(PaymentService paymentService) {
         this.paymentService = paymentService;
 
-        // this only appears once because the OrderService class is a singleton
+        // this will be run every time the OrderService class requested because it is a prototype
         System.out.println("OrderService created"); 
     }
 
