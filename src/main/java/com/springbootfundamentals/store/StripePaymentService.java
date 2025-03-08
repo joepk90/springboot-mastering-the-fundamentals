@@ -3,11 +3,11 @@ package com.springbootfundamentals.store;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Service;
+// import org.springframework.context.annotation.Primary;
+// import org.springframework.stereotype.Service;
 
-@Service("stripe")
-@Primary // Primary: when there are multiple candidates availabe, this is selected as the primary bean
+// @Service("stripe")
+// @Primary // Primary: when there are multiple candidates availabe, this is selected as the primary bean
 public class StripePaymentService implements PaymentService {
 
     @Value("${stripe.apiUrl}")

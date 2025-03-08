@@ -1,10 +1,10 @@
 package com.springbootfundamentals.store;
 
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
+// import org.springframework.stereotype.Service;
 // import org.springframework.beans.factory.annotation.Autowired;
 
-@Component
+// @Service
 public class OrderService {
     private PaymentService paymentService;
 
