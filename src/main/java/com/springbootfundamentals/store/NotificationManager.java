@@ -1,12 +1,11 @@
 package com.springbootfundamentals.store;
 
-import org.springframework.stereotype.Component;
-
+import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Qualifier;
 
-@Component
+@Service
 public class NotificationManager {
-    private NotificationService notificationService;
+    private final NotificationService notificationService;
 
     public NotificationManager(@Qualifier("email") NotificationService notificationService) {
         this.notificationService = notificationService;

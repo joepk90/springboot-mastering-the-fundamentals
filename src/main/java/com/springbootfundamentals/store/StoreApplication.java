@@ -13,7 +13,7 @@ public class StoreApplication {
 		OrderService.placeOrder();
 
 		var NotificationManager = context.getBean(NotificationManager.class);
-		NotificationManager.sendNotification("I am the notification message");		
+		NotificationManager.sendNotification("This is a test");		
 	}
 
 }
