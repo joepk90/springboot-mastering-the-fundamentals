@@ -18,7 +18,7 @@ public class StoreApplication {
 		// note:
 		// - this causes an error: Socket accept failed
 		// - so does mosh's code at the same commit (vscode/jenv)
-		context.close();
+		// context.close();
 		
 
 		// when the OrderService is set to use the prototype scope,
