@@ -14,8 +14,8 @@ public class StoreApplication {
 
 		// when the OrderService is set to use the prototype scope,
 		// this will instantiate a second instance of the OrderService
-		var OrderService2 = context.getBean(OrderService.class);
-		OrderService2.placeOrder();
+		// var OrderService2 = context.getBean(OrderService.class);
+		// OrderService2.placeOrder();
 
 		var NotificationManager = context.getBean(NotificationManager.class);
 		NotificationManager.sendNotification("This is a test");	
