@@ -12,5 +12,6 @@ stripe:
   
 payment-gateway: paypal
 
-host: example.com
-port: 3000
+mail:
+  host: https://smtp.gmail.com
+  port: 5761

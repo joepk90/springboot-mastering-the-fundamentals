@@ -1,7 +1,7 @@
 package com.springbootfundamentals.store;
-// import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Service;
 
-// @Service
+@Service
 public class SMSNotificationService implements NotificationService {
 
     @Override

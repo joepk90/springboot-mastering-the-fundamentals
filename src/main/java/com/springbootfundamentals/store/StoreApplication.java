@@ -33,9 +33,12 @@ public class StoreApplication {
 		// the resource is created later, when it is actually needed
 		context.getBean(HeavyResource.class);
 
+		System.out.println("=== USER SERVICE ===");
+
 		UserService userService = context.getBean(UserService.class);
-		userService.registerUser("john@gmail.com");
-		userService.registerUser("ben@gmail.com");
+		userService.registerUser(new User(1l, "john@gmail.com", "12345", "john"));
+		// userService.registerUser(new User(1l, "john@gmail.com", "12345", "john"));
+		userService.registerUser(new User(1l, "ben@gmail.com", "12345", "ben"));
 	}
 
 }
