@@ -3,6 +3,10 @@ spring:
   application:
     name: store
     payment-gateway: paypal
+  datasource:
+    url: jdbc:mysql://localhost:8306/store?createDatabaseIfNotExist=true
+    username: dbuser
+    password: dbpw
 
 stripe:
   apiUrl: https://api.stripe.com
