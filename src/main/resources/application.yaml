@@ -11,3 +11,6 @@ stripe:
   supported-currencies: USD,EUR,GBP
   
 payment-gateway: paypal
+
+host: example.com
+port: 3000

@@ -32,6 +32,10 @@ public class StoreApplication {
 		// by applying the @Lazy annotation to the class, and requesting the resource here
 		// the resource is created later, when it is actually needed
 		context.getBean(HeavyResource.class);
+
+		UserService userService = context.getBean(UserService.class);
+		userService.registerUser("john@gmail.com");
+		userService.registerUser("ben@gmail.com");
 	}
 
 }

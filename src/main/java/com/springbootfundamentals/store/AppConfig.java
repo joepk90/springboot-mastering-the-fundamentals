@@ -44,6 +44,31 @@ public class AppConfig {
 
         return new OrderService(paypal());
     }
+
+   
+
+    // User Registration Rssources
+
+    @Bean
+    public NotificationService emailNotificationService() {
+        return new EmailNotificationService();
+    }
+
+    @Bean
+    public UserRepository userRepository() {
+        return new InMemoryUserRepository();
+    }
+
+    @Bean
+    public UserService userService() {
+        return new UserService(userRepository(), emailNotificationService());
+    }
+
+    @Bean
+    public NotificationManager notificationManager() {
+        return new NotificationManager(emailNotificationService());
+    }
+
 }
 
 /**
