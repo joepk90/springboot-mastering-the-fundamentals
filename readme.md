@@ -10,6 +10,8 @@ $ brew install maven
 
 ```
 
+## Maven Central Repository
+https://central.sonatype.com/
 
 ## Spring Boot Devtools (spring-boot-devtools)
 Spring Boot Devtools is used to automatically rebuild and reload the application when changes are made.
@@ -19,3 +21,7 @@ When the application is run as a fully packaged application, launched from java 
 For more information see the documentation:
 - [docs.spring.io/spring-boot/reference/using/devtools.html](https://docs.spring.io/spring-boot/reference/using/devtools.html#using.devtools)
 - [Stack Overflow Thread](https://stackoverflow.com/questions/37701330/spring-boot-dev-tools-turning-them-off-for-production)
+
+
+## Tutorial Repository:
+https://github.com/mosh-hamedani/spring-store
