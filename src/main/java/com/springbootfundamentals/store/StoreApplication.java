@@ -10,7 +10,56 @@ public class StoreApplication {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(StoreApplication.class, args);
-		
+
+	}
+
+
+
+	
+	/**
+	 * COURSE DOCUMENTATION
+	 * 
+	 * The below methods won't be run.
+	 * They are here to represent different sections of the course.
+	 * 
+	 * To run one of them, update the name of the method to main.
+	 *
+	 */
+
+	// method won't be run
+	public static void dependancyInjection(String[] args) {
+		ConfigurableApplicationContext context = SpringApplication.run(StoreApplication.class, args);
+
+		var NotificationManager = context.getBean(NotificationManager.class);
+		NotificationManager.sendNotification("This is a test");	
+	}
+
+	// method won't be run
+	public static void resourceTypes(String[] args) {
+		ConfigurableApplicationContext context = SpringApplication.run(StoreApplication.class, args);
+
+		var OrderService = context.getBean(OrderService.class);
+		OrderService.placeOrder();
+
+		// when the OrderService is set to use the prototype scope,
+		// this will instantiate a second instance of the OrderService
+		var OrderService2 = context.getBean(OrderService.class);
+		OrderService2.placeOrder();
+	}
+
+	// method won't be run
+	public static void lazyInitialisation(String[] args) {
+		ConfigurableApplicationContext context = SpringApplication.run(StoreApplication.class, args);
+
+		// by applying the @Lazy annotation to the class, and requesting the resource here
+		// the resource is created later, when it is actually needed
+		context.getBean(HeavyResource.class);
+	}
+
+	// method won't be run
+	public static void lifecycleHooks(String[] args) {
+		ConfigurableApplicationContext context = SpringApplication.run(StoreApplication.class, args);
+
 		var OrderService = context.getBean(OrderService.class);
 		OrderService.placeOrder();
 
@@ -18,27 +67,17 @@ public class StoreApplication {
 		// note:
 		// - this causes an error: Socket accept failed
 		// - so does mosh's code at the same commit (vscode/jenv)
-		// context.close();
-		
-
-		// when the OrderService is set to use the prototype scope,
-		// this will instantiate a second instance of the OrderService
-		// var OrderService2 = context.getBean(OrderService.class);
-		// OrderService2.placeOrder();
-
-		var NotificationManager = context.getBean(NotificationManager.class);
-		NotificationManager.sendNotification("This is a test");	
-		
-		// by applying the @Lazy annotation to the class, and requesting the resource here
-		// the resource is created later, when it is actually needed
-		context.getBean(HeavyResource.class);
-
-		System.out.println("=== USER SERVICE ===");
-
-		UserService userService = context.getBean(UserService.class);
-		userService.registerUser(new User(1l, "john@gmail.com", "12345", "john"));
-		// userService.registerUser(new User(1l, "john@gmail.com", "12345", "john"));
-		userService.registerUser(new User(1l, "ben@gmail.com", "12345", "ben"));
+		context.close();
 	}
+
+		// method won't be run
+		public static void userRegistrationService(String[] args) {
+			ConfigurableApplicationContext context = SpringApplication.run(StoreApplication.class, args);
+
+			UserService userService = context.getBean(UserService.class);
+			userService.registerUser(new User(1l, "john@gmail.com", "12345", "john"));
+			// userService.registerUser(new User(1l, "john@gmail.com", "12345", "john"));
+			userService.registerUser(new User(1l, "ben@gmail.com", "12345", "ben"));
+		}
 
 }
