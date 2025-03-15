@@ -1,5 +1,21 @@
 # Springboot - 
 
+To Start the application, run the following commands:
+
+Start the Database:
+```
+make db-start
+```
+
+Start the Springboot App:
+```
+make dev
+```
+
+To view the Springboot App, go to:
+[localhost:8080](http://localhost:8080)
+
+
 ## Gobal Dependancies
 - Jenv
 - Maven
