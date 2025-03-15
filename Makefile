@@ -13,3 +13,7 @@ db-stop:
 
 db-delete:
 	docker-compose down -v
+
+# see plugins for other migration flyway commands (Section in VSCode beneath Java Projects)
+db-migrate:
+	mvn flyway:migrate
