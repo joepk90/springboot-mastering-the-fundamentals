@@ -85,6 +85,7 @@
 					<url>jdbc:mysql://localhost:8306/store?createDatabaseIfNotExist=true</url>
 					<user>root</user>
 					<password>docker_root</password>
+					<cleanDisabled>false</cleanDisabled>
 				</configuration>
 			</plugin>
 
