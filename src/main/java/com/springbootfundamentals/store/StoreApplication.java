@@ -24,6 +24,13 @@ public class StoreApplication {
 		user.setName("john");
 		user.setEmail("john@example.com");
 		user.setPassword("password");
+
+		// create user object using the builder pattern
+		var buildUser = User.builder()
+		.name("john")
+		.password("password")
+		.email("john@example.com")
+		.build();
 	}
 
 }
