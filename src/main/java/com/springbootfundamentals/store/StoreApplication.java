@@ -20,7 +20,7 @@ public class StoreApplication {
 	}
 
 	public static void entityAnnotations() {
-		var user = new User(1L, "name", "email", "password");
+		var user = new User(1L, "name", "email", "password", null);
 		user.setName("john");
 		user.setEmail("john@example.com");
 		user.setPassword("password");
