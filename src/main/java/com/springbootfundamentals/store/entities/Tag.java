@@ -13,10 +13,12 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
 @Entity
 @Table(name = "tags") // custom table name, set here to match our existing table schema
 public class Tag {
@@ -30,6 +32,7 @@ public class Tag {
     private String name;
 
     @ManyToMany(mappedBy = "tags")
+    @ToString.Exclude // prevents string conversion cycle in object model (user references tag -> tag references user)
     private Set<User> users = new HashSet<>();
 
     public Tag(String name) {

@@ -81,6 +81,7 @@ public class User {
         joinColumns = @JoinColumn(name = "user_id"),
         inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
+    @Builder.Default // initialise the tags field on user instantiation (when using the builder method)
     private Set<Tag> tags = new HashSet<>();
 
 }
