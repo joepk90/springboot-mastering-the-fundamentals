@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import org.springframework.context.ConfigurableApplicationContext;
 
+import com.springbootfundamentals.store.entities.Address;
 import com.springbootfundamentals.store.entities.User;
 
 @SpringBootApplication
@@ -17,13 +18,16 @@ public class StoreApplication {
 		 * Examples
 		 */
 		// entityAnnotations();
+		// oneToManyReplationships();
 	}
 
 	public static void entityAnnotations() {
+
 		var user = new User(1L, "name", "email", "password", null);
 		user.setName("john");
 		user.setEmail("john@example.com");
 		user.setPassword("password");
+
 
 		// create user object using the builder pattern
 		var buildUser = User.builder()
@@ -31,6 +35,30 @@ public class StoreApplication {
 		.password("password")
 		.email("john@example.com")
 		.build();
+	}
+
+	public static void oneToManyReplationships() {
+		// create user object using the builder pattern
+		var user = User.builder()
+		.name("john")
+		.password("password")
+		.email("john@example.com")
+		.build();
+
+		var address = Address.builder()
+		.street("street")
+		.city("city")
+		.state("state")
+		.zip("zip")
+		.build();
+
+		// connect the objectss
+
+		// assign the address object to the user
+		user.getAddresses().add(address);
+
+		// assign the user object to the address
+		address.setUser(user);
 	}
 
 }
