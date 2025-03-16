@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import com.springbootfundamentals.store.entities.Address;
+import com.springbootfundamentals.store.entities.Profile;
 import com.springbootfundamentals.store.entities.Tag;
 import com.springbootfundamentals.store.entities.User;
 
@@ -21,11 +22,12 @@ public class StoreApplication {
 		// entityAnnotations();
 		// oneToManyReplationships();
 		// manyToManyReplationships();
+		// oneToOneReplationships();
 	}
 
 	public static void entityAnnotations() {
 
-		var user = new User(1L, "name", "email", "password", null, null);
+		var user = new User(1L, "name", "email", "password", null, null, null);
 		user.setName("john");
 		user.setEmail("john@example.com");
 		user.setPassword("password");
@@ -69,5 +71,21 @@ public class StoreApplication {
 		user.addTag("tag1");
 		System.out.println(user);
 }
+
+	public static void oneToOneReplationships() {
+		var user = User.builder()
+		.name("john")
+		.password("password")
+		.email("john@example.com")
+		.build();
+
+		var profile = Profile.builder()
+			.bio("bio")
+			.build();
+
+		user.setProfile(profile);
+		profile.setUser(user);
+		System.out.println(user);
+	}
 
 }
