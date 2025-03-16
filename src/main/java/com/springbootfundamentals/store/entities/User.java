@@ -68,6 +68,11 @@ public class User {
         tag.getUsers().add(this);
     }
 
+    // public void removeTag(Tag tag) {
+    //     tags.remove(tag);
+    //     tag.getUsers().remove(this);
+    // }
+
     /**
      * JoinTable:
      * - applying the JoinTable here means the User entity is the owner of the relationship
