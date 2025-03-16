@@ -1,4 +1,4 @@
-package com.springbootfundamentals.store;
+package com.springbootfundamentals.dependancyDemo;
 
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;

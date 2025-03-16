@@ -1,4 +1,4 @@
-package com.springbootfundamentals.store;
+package com.springbootfundamentals.dependancyDemo;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;

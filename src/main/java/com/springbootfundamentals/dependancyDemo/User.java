@@ -1,4 +1,4 @@
-package com.springbootfundamentals.store;
+package com.springbootfundamentals.dependancyDemo;
 
 public class User {
     private Long id;

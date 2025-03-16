@@ -1,4 +1,4 @@
-package com.springbootfundamentals.store;
+package com.springbootfundamentals.dependancyDemo;
 
 public interface UserRepository {
     void save(User user);
