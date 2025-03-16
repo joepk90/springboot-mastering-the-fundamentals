@@ -42,6 +42,7 @@ public class User {
     // mappedBy relates to the user field on the address entity
     // it is required for hybernation in order to generate the sql mapping
     @OneToMany(mappedBy = "user") 
+    @Builder.Default // tells the builder to include these type of initialisations when creating an object
     private List<Address> addresses = new ArrayList<>();
 
     public void addAddress(Address address) {

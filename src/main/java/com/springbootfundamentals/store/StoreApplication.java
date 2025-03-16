@@ -54,6 +54,7 @@ public class StoreApplication {
 
 		// custom addAddress method to abstract the connection of the objects to the user entity
 		user.addAddress(address);
+		System.out.println(user);
 	}
 
 }
