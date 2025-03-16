@@ -11,10 +11,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "tags") // custom table name, set here to match our existing table schema
 public class Tag {
@@ -29,4 +31,8 @@ public class Tag {
 
     @ManyToMany(mappedBy = "tags")
     private Set<User> users = new HashSet<>();
+
+    public Tag(String name) {
+        this.name = name;
+    }
 }

@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import com.springbootfundamentals.store.entities.Address;
+import com.springbootfundamentals.store.entities.Tag;
 import com.springbootfundamentals.store.entities.User;
 
 @SpringBootApplication
@@ -19,6 +20,7 @@ public class StoreApplication {
 		 */
 		// entityAnnotations();
 		// oneToManyReplationships();
+		// manyToManyReplationships();
 	}
 
 	public static void entityAnnotations() {
@@ -55,6 +57,20 @@ public class StoreApplication {
 		// custom addAddress method to abstract the connection of the objects to the user entity
 		user.addAddress(address);
 		System.out.println(user);
+	}
+
+	public static void manyToManyReplationships() {
+		var user = User.builder()
+		.name("john")
+		.password("password")
+		.email("john@example.com")
+		.build();
+
+		var tag = new Tag("tag1");
+
+		// related code that should be abstracted
+		user.getTags().add(tag);
+		tag.getUsers().add(user);
 	}
 
 }
