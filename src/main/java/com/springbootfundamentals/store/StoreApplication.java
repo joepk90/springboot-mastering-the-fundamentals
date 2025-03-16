@@ -52,13 +52,8 @@ public class StoreApplication {
 		.zip("zip")
 		.build();
 
-		// connect the objectss
-
-		// assign the address object to the user
-		user.getAddresses().add(address);
-
-		// assign the user object to the address
-		address.setUser(user);
+		// custom addAddress method to abstract the connection of the objects to the user entity
+		user.addAddress(address);
 	}
 
 }
