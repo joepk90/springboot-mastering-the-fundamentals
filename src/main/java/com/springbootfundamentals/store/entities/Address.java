@@ -13,11 +13,13 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @AllArgsConstructor // generates a constructor consisting of all the args
 @NoArgsConstructor  // generates a constructor consisting of no args (required because we have overriden the default constructor)
+@ToString
 @Builder
 @Entity
 @Table(name = "addresses") // custom table name, set here to match our existing table schema
@@ -42,5 +44,6 @@ public class Address {
 
     @ManyToOne
     @JoinColumn(name = "user_id") // foreign key
+    @ToString.Exclude // prevents string conversion cycle in object model (user references addresss -> address references user)
     private User user;
 }
