@@ -15,23 +15,24 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "profile") // custom table name, set here to match our existing table schema
+@Table(name = "profiles") // custom table name, set here to match our existing table schema
 public class Profile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment the id column
+    @Column(name = "id")
     private Long id;
 
-    @Column(nullable = false, name = "bio")
+    @Column(name = "bio")
     private String bio;
 
-    @Column(nullable = false, name = "phone_number")
+    @Column(name = "phone_number")
     private String phoneNumber;
 
-    @Column(nullable = false, name = "date_of_birth")
+    @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
-    @Column(nullable = false, name = "loyalty_points")
+    @Column(name = "loyalty_points")
     private Integer loyaltyPoints;
 
 }
