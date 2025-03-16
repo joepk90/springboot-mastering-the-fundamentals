@@ -66,11 +66,8 @@ public class StoreApplication {
 		.email("john@example.com")
 		.build();
 
-		var tag = new Tag("tag1");
-
-		// related code that should be abstracted
-		user.getTags().add(tag);
-		tag.getUsers().add(user);
-	}
+		user.addTag("tag1");
+		System.out.println(user);
+}
 
 }

@@ -62,6 +62,12 @@ public class User {
         address.setUser(null);
     }
 
+    public void addTag(String tagName) {
+        var tag = new Tag(tagName);
+        tags.add(tag);
+        tag.getUsers().add(this);
+    }
+
     /**
      * JoinTable:
      * - applying the JoinTable here means the User entity is the owner of the relationship
