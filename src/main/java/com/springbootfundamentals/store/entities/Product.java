@@ -29,6 +29,9 @@ public class Product {
     @Column(name = "price")
     private BigDecimal price;
 
+    @Column(name = "description")
+    private String description;
+
     /**
      * Product is the owner of the category/product relationship,
      * because it has the foreign key which references the category
