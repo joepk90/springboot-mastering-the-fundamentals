@@ -88,9 +88,23 @@ public class User {
         inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
     @Builder.Default // initialise the tags field on user instantiation (when using the builder method)
-    private Set<Tag> tags = new HashSet<>();
+    private Set<Tag> tags = new HashSet<>();    
 
     @OneToOne(mappedBy = "user")
     private Profile profile;
 
+    /**
+     *  faverouteProducts (wishlist)
+     *  We could add the inverse relationship to the product entity. However in this case it is unnesssecary.
+     *  Because in relatity, once we have a product object, we don't need to show all the users that have that
+     *  product in their wishlist - there is no need to navigate from the product oject to a list of users.
+    */
+    @ManyToMany
+    @JoinTable(
+        name = "wishlist",
+        joinColumns = @JoinColumn(name = "user_id"),
+        inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
+    @Builder.Default // initialise the tags field on user instantiation (when using the builder method)
+    private Set<Product> faverouteProducts = new HashSet<>();
 }

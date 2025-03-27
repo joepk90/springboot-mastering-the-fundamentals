@@ -1,11 +1,14 @@
 package com.springbootfundamentals.store;
 
+import java.util.HashSet;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import org.springframework.context.ConfigurableApplicationContext;
 
 import com.springbootfundamentals.store.entities.Address;
+import com.springbootfundamentals.store.entities.Product;
 import com.springbootfundamentals.store.entities.Profile;
 import com.springbootfundamentals.store.entities.Tag;
 import com.springbootfundamentals.store.entities.User;
@@ -27,7 +30,8 @@ public class StoreApplication {
 
 	public static void entityAnnotations() {
 
-		var user = new User(1L, "name", "email", "password", null, null, null);
+		var faverouteProducts = new HashSet<Product>();
+		var user = new User(1L, "name", "email", "password", null, null, null, faverouteProducts);
 		user.setName("john");
 		user.setEmail("john@example.com");
 		user.setPassword("password");
