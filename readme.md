@@ -73,3 +73,32 @@ docker exec -it springboot_mastering_the_fundamentals /bin/bash
 mysql -u root -p
 ```
 
+### Automatic Databases and Migrations
+
+In `DEV` databases are created automatically due to the `createDatabaseIfNotExist` flag.
+
+Database migrations currently need to be done manually - see the `db-migrate` make command. 
+
+If we want the application to run migrations against the database automatically, the following property can be used:
+```
+spring.jpa.hibernate.ddl-auto=none # OPTIONS: create, create-drop, validate, update
+```
+
+
+
+## Model First Migrations (Hybernate)
+In the course, an IntelliJ extension called JPA Buddy is used. This extension is used to generate migration files based off of the entities.
+
+As I wasn't using IntelliJ, and didn't want to become dependant on IntelliJ, I setup an alternative solution.
+
+It could be worthwhile setting this up as a seperate module.
+
+See the `db-migration-generate` make command and the `SchemaGenerator` class.
+
+<b>Note:</b>
+When generating migration files automatically, a lot of unnessecary migration statements will be created along with the required changes. This is because the database first approach was used at the start of the project, causing the database schema and entities to be out of sync. And when generating the migration sql statements, a lot of defaults are applied which are not represented in the entities defintions.
+
+If we want to resolve this (which could be worth doing at the end of the course), we either need to:
+- Apply these unnessecary migration statements
+- Update our entities to match the current schema
+- Update the original migration statements to use the (Hyerbnate/MySQL8Dialect) defaults 
