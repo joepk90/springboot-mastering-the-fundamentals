@@ -2,6 +2,7 @@ package com.springbootfundamentals.repositoryExamples;
 
 import org.springframework.context.ConfigurableApplicationContext;
 
+import com.springbootfundamentals.store.services.UserService;
 import com.springbootfundamentals.store.entities.User;
 import com.springbootfundamentals.store.repositories.UserRepository;
 
@@ -17,7 +18,8 @@ public class RepositoryExamples {
 		 * Examples
 		 */
 
-		usingRepositories();
+		// usingRepositories();
+		managingTransactions();
     }
 
     public void usingRepositories() {
@@ -41,5 +43,10 @@ public class RepositoryExamples {
 
         // delete user by id
         repository.deleteById(1L);
+    }
+    
+    public void managingTransactions() {
+        var service = context.getBean(UserService.class);
+        service.showEntityStates();
     }
 }
