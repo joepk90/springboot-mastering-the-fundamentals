@@ -3,15 +3,16 @@ package com.springbootfundamentals.repositoryExamples;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import com.springbootfundamentals.store.services.UserService;
+
+import lombok.AllArgsConstructor;
+
 import com.springbootfundamentals.store.entities.User;
 import com.springbootfundamentals.store.repositories.UserRepository;
 
+@AllArgsConstructor
 public class RepositoryExamples {
+    // this works because of the @AllArgsConstructor annotation. context is instantiated under the hood by spring
     ConfigurableApplicationContext context;
-
-    public RepositoryExamples(ConfigurableApplicationContext appContext) {
-        this.context = appContext;
-    }
 
     public void main() {
         /**
