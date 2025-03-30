@@ -7,7 +7,8 @@ spring:
     url: jdbc:mysql://localhost:8306/store?createDatabaseIfNotExist=true
     username: dbuser
     password: dbpw
-  # jpa:
+  jpa:
+    show-sql: true # show sql statements being run
   #   hibernate:
   #     ddl-auto: "create" # runs migrations automatially (other options: create, create-drop, validate, update)
   # TODO: hibernate - ddl-auto not properly working because schema are not 100% compatible with hybernate.
