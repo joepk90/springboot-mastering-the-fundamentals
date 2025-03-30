@@ -32,5 +32,14 @@ public class RepositoryExamples {
 			.build();
 
 		repository.save(user);
+
+        // find user by id
+        var user1 = repository.findById(1L).orElseThrow(); // alternatively return null: orElse(null)
+        System.out.println(user1.getEmail());
+
+        repository.findAll().forEach(u -> System.out.println(u.getEmail()));
+
+        // delete user by id
+        repository.deleteById(1L);
     }
 }
