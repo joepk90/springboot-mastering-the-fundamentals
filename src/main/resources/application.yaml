@@ -7,6 +7,11 @@ spring:
     url: jdbc:mysql://localhost:8306/store?createDatabaseIfNotExist=true
     username: dbuser
     password: dbpw
+  # jpa:
+  #   hibernate:
+  #     ddl-auto: "create" # runs migrations automatially (other options: create, create-drop, validate, update)
+  # TODO: hibernate - ddl-auto not properly working because schema are not 100% compatible with hybernate.
+  # need to update schema definitions in order for this to work. use db-migrate make command instead
 
 stripe:
   apiUrl: https://api.stripe.com
