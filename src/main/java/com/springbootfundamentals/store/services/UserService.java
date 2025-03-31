@@ -1,5 +1,6 @@
 package com.springbootfundamentals.store.services;
 
+import com.springbootfundamentals.store.repositories.AddressRepository;
 import com.springbootfundamentals.store.repositories.ProfileRepository;
 import com.springbootfundamentals.store.repositories.UserRepository;
 
@@ -18,6 +19,7 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final ProfileRepository profileRepository;
+    private final AddressRepository addressRepository;
     private final EntityManager entityManager;
 
     /**
@@ -67,5 +69,9 @@ public class UserService {
         // when the user -> email is querues - to fix this, the whole showRelatedEntities method must be considered a transaction
         */
         System.out.println(profile.getUser().getEmail()); 
+    }
+    public void fetchStrategiesExercise() {
+        var address = addressRepository.findById(1L).orElseThrow();
+        System.out.println(address.getZip()); 
     }
 }

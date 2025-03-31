@@ -21,7 +21,8 @@ public class RepositoryExamples {
 
 		// usingRepositories();
 		// managingTransactions();
-		fetchingStategies();
+		// fetchingStategies();
+        understandingFetchStrategiesExercise();
     }
 
     public void usingRepositories() {
@@ -68,6 +69,10 @@ public class RepositoryExamples {
     public void fetchingStategies() {
         var service = context.getBean(UserService.class);
         service.showRelatedEntities();
+    }
+    public void understandingFetchStrategiesExercise() {
+        var service = context.getBean(UserService.class);
+        service.fetchStrategiesExercise();
     }
 }
 
