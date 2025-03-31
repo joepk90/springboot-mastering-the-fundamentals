@@ -1,5 +1,6 @@
 package com.springbootfundamentals.store.services;
 
+import com.springbootfundamentals.store.repositories.ProfileRepository;
 import com.springbootfundamentals.store.repositories.UserRepository;
 
 import jakarta.persistence.EntityManager;
@@ -16,6 +17,7 @@ import lombok.AllArgsConstructor;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final ProfileRepository profileRepository;
     private final EntityManager entityManager;
 
     /**
@@ -52,7 +54,10 @@ public class UserService {
 
     // used to monitor the hibernate queries being made - to view lazy vs eager loaded data
     public void showRelatedEntities() {
-        var user = userRepository.findById(2L).orElseThrow();
-        System.out.println(user.getEmail());
+        // var user = userRepository.findById(2L).orElseThrow();
+        // System.out.println(user.getEmail());
+
+        var profile = profileRepository.findById(2L).orElseThrow();
+        System.out.println(profile.getBio()); // lazy query made just for the profile record 
     }
 }
