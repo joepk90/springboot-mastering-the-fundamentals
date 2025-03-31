@@ -70,7 +70,7 @@ public class UserService {
         */
         System.out.println(profile.getUser().getEmail()); 
     }
-    public void fetchStrategiesExercise() {
+    public void fetchAddress() {
         var address = addressRepository.findById(1L).orElseThrow();
         System.out.println(address.getZip()); 
     }

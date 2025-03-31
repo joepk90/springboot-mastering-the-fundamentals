@@ -72,7 +72,7 @@ public class RepositoryExamples {
     }
     public void understandingFetchStrategiesExercise() {
         var service = context.getBean(UserService.class);
-        service.fetchStrategiesExercise();
+        service.fetchAddress();
     }
 }
 
