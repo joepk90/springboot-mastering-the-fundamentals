@@ -53,11 +53,19 @@ public class UserService {
     }
 
     // used to monitor the hibernate queries being made - to view lazy vs eager loaded data
+    @Transactional // required for the user -> email field to be queried
     public void showRelatedEntities() {
         // var user = userRepository.findById(2L).orElseThrow();
         // System.out.println(user.getEmail());
 
         var profile = profileRepository.findById(2L).orElseThrow();
         System.out.println(profile.getBio()); // lazy query made just for the profile record 
+
+       /**
+        *  More advanced query made to get user record, however the @Transactional annoatation is required!
+        // because the findById method is transactional and the fetch stategy is lazy, it does not know what to query 
+        // when the user -> email is querues - to fix this, the whole showRelatedEntities method must be considered a transaction
+        */
+        System.out.println(profile.getUser().getEmail()); 
     }
 }
