@@ -7,6 +7,7 @@ import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -90,6 +91,15 @@ public class User {
     @Builder.Default // initialise the tags field on user instantiation (when using the builder method)
     private Set<Tag> tags = new HashSet<>();    
 
+    /**
+     * Lazy loading vs Eager Loading
+     * Example OneToOne annotation using lazy loading instead of eager - however for this to work it
+     * needs to be handled by the owner of the relationship - the Profile:
+     * 
+     * # @OneToOne(mappedBy = "user", fetch = FetchType.LAZY)
+     */
+
+    // OneToOne uses eager loading by default. 
     @OneToOne(mappedBy = "user")
     private Profile profile;
 

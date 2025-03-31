@@ -20,7 +20,8 @@ public class RepositoryExamples {
 		 */
 
 		// usingRepositories();
-		managingTransactions();
+		// managingTransactions();
+		fetchingStategies();
     }
 
     public void usingRepositories() {
@@ -50,4 +51,23 @@ public class RepositoryExamples {
         var service = context.getBean(UserService.class);
         service.showEntityStates();
     }
+
+    /**
+     * Fetching Strategies
+     * 
+     * Eager Loading - related objects are immediatly loaded.
+     * This it the default strategy for:
+     * - OneToOne
+     * - ManyToMany
+     * 
+     * Lazy Loading - related objects are loaded when accessedd
+     * This it the default strategy for:
+     * - OneToMany
+     * - ManyToOne
+    */
+    public void fetchingStategies() {
+        var service = context.getBean(UserService.class);
+        service.showRelatedEntities();
+    }
 }
+

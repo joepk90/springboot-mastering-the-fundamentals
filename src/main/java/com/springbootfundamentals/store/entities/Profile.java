@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -45,7 +46,7 @@ public class Profile {
     @Column(name = "loyalty_points")
     private Integer loyaltyPoints;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY) // only controles this side of the relationship - if the user objet is called this has no impact. 
     @JoinColumn(name = "id")
     @MapsId // tells hybernate to use the same column as both the primary key and foriegn key
     @ToString.Exclude // prevents string conversion cycle in object model (user references profile -> profile references user)

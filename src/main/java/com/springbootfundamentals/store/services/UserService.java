@@ -49,4 +49,10 @@ public class UserService {
         else
             System.out.println("Transient / Detached");
     }
+
+    // used to monitor the hibernate queries being made - to view lazy vs eager loaded data
+    public void showRelatedEntities() {
+        var user = userRepository.findById(2L).orElseThrow();
+        System.out.println(user.getEmail());
+    }
 }
