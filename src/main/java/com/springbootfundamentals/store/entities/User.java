@@ -97,11 +97,16 @@ public class User {
      * needs to be handled by the owner of the relationship - the Profile:
      * 
      * # @OneToOne(mappedBy = "user", fetch = FetchType.LAZY)
+     * 
+     * In a real world application - it could be worthwhile commenting the profile field out, to prevent
+     * unnessecary Eager Loading. Also the owner of this relationship is the Profile and the User entity
+     * may not require this data
      */
 
     // OneToOne uses eager loading by default. 
-    @OneToOne(mappedBy = "user")
-    private Profile profile;
+    // @OneToOne(mappedBy = "user")
+    // private Profile profile;
+    
 
     /**
      *  faverouteProducts (wishlist)
