@@ -104,8 +104,8 @@ public class User {
      */
 
     // OneToOne uses eager loading by default. 
-    // @OneToOne(mappedBy = "user")
-    // private Profile profile;
+    @OneToOne(mappedBy = "user")
+    private Profile profile;
     
 
     /**
