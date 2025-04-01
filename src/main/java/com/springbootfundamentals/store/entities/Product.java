@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 // import java.util.HashSet;
 // import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -44,7 +45,11 @@ public class Product {
      * Product is the owner of the category/product relationship,
      * because it has the foreign key which references the category
      */
-    @ManyToOne
+    @ManyToOne(
+        // cascade - required in order to persist the related category object when saving the object
+        // using the ProductRepository
+        cascade = CascadeType.PERSIST
+    )
     @JoinColumn(name = "category_id")
     private Category category;
 
