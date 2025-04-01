@@ -157,5 +157,9 @@ public class UserService {
         products.forEach(productSet::add);
         user.setFaverouteProducts(productSet);
     }
+
+    public void managingProductsAndWishlistsStep4() {
+        productRepository.deleteById(1L);
+    }
 }
 

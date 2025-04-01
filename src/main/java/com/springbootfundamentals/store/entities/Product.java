@@ -1,8 +1,8 @@
 package com.springbootfundamentals.store.entities;
 
 import java.math.BigDecimal;
-// import java.util.HashSet;
-// import java.util.Set;
+import java.util.Set;
+import java.util.HashSet;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -11,7 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-// import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -59,7 +59,7 @@ public class Product {
      * usersInWishlist: Unnessesary Relationship 
      * - Added for documentation purposes. See Users entity for more details
      */
-    // @ManyToMany(mappedBy = "faverouteProducts")
-    // @Builder.Default
-    // private Set<User> usersInWishlist = new HashSet<>();
+    @ManyToMany(mappedBy = "faverouteProducts", cascade = CascadeType.REMOVE)
+    @Builder.Default
+    private Set<User> usersInWishlist = new HashSet<>();
 }

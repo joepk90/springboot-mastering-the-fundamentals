@@ -98,7 +98,8 @@ public class RepositoryExamples {
         var service = context.getBean(UserService.class);
         // service.managingProductsAndWishlistsStep1();
         // service.managingProductsAndWishlistsStep2();
-        service.managingProductsAndWishlistsStep3();
+        // service.managingProductsAndWishlistsStep3();
+        service.managingProductsAndWishlistsStep4();
     }
 }
 
