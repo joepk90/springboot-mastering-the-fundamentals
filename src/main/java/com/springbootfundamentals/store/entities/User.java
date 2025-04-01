@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -48,9 +49,15 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    // mappedBy relates to the user field on the address entity
-    // it is required for hybernation in order to generate the sql mapping
-    @OneToMany(mappedBy = "user") 
+    
+    @OneToMany(
+        // mappedBy relates to the user field on the address entity
+        // it is required for hybernation in order to generate the sql mapping
+        mappedBy = "user",
+        // cascade - required in order to persist the related address object when saving the object
+        // using the UserRepository
+        cascade = CascadeType.PERSIST
+    ) 
     @Builder.Default // tells the builder to include these type of initialisations when creating an object
     private List<Address> addresses = new ArrayList<>();
 
