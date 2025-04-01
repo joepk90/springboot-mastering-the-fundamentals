@@ -59,7 +59,10 @@ public class User {
         cascade = {
             CascadeType.PERSIST,
             CascadeType.REMOVE // configures the app (not the db) to delete the address record when a user object is deleted
-        }
+        },
+        // configures hibernate to remove orphaned entities 
+        // otherwise a DataIntegrityViolationException is caused because user_id value on address entity cannot be null
+        orphanRemoval = true
     ) 
     @Builder.Default // tells the builder to include these type of initialisations when creating an object
     private List<Address> addresses = new ArrayList<>();
