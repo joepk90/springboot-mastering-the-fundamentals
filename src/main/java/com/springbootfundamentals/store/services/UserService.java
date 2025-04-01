@@ -9,6 +9,7 @@ import jakarta.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.springbootfundamentals.store.entities.Address;
 import com.springbootfundamentals.store.entities.User;
 
 import lombok.AllArgsConstructor;
@@ -73,5 +74,27 @@ public class UserService {
     public void fetchAddress() {
         var address = addressRepository.findById(1L).orElseThrow();
         System.out.println(address.getZip()); 
+    }
+
+    public void persistRelationship() {
+        var user = User.builder()
+            .name("John Doe")
+            .email("john.doe@example.com")
+            .password("password")
+            .build();
+
+        var address = Address.builder()
+            .street("street")
+            .state("state")
+            .city("city")
+            .zip("zip")
+            .build();
+
+        user.addAddress(address);
+        
+        // the Address does not get saved
+        // by default. hibernate doesn't propergate the persist operation, meaning  when it saves the user
+        // it doesn't save the related entities - in this case the address
+        userRepository.save(user); 
     }
 }
