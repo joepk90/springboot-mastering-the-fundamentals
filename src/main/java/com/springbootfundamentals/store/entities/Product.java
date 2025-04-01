@@ -59,7 +59,7 @@ public class Product {
      * usersInWishlist: Unnessesary Relationship 
      * - Added for documentation purposes. See Users entity for more details
      */
-    @ManyToMany(mappedBy = "faverouteProducts", cascade = CascadeType.REMOVE)
-    @Builder.Default
-    private Set<User> usersInWishlist = new HashSet<>();
+    // @ManyToMany(mappedBy = "faverouteProducts")
+    // @Builder.Default
+    // private Set<User> usersInWishlist = new HashSet<>();
 }

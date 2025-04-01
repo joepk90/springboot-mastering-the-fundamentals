@@ -159,7 +159,7 @@ public class UserService {
     }
 
     public void managingProductsAndWishlistsStep4() {
-        productRepository.deleteById(1L);
+        productRepository.deleteById(1L); // (user id may need changing)
     }
 }
 
