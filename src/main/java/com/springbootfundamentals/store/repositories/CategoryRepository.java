@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.springbootfundamentals.store.entities.Category;
 
-public interface CategoryRepository extends CrudRepository<Category, Long> {
+public interface CategoryRepository extends CrudRepository<Category, Byte> {
     
 }

@@ -136,7 +136,7 @@ public class UserService {
 
     @Transactional // required to extend the transactional boundry of the findById method.
     public void managingProductsAndWishlistsStep2() {
-        var category = categoryRepository.findById(1L).orElseThrow(); // find by id is transactional
+        var category = categoryRepository.findById((byte)1).orElseThrow(); // find by id is transactional  (user id may need changing)
 
         var product = Product.builder()
         .name("movie")
