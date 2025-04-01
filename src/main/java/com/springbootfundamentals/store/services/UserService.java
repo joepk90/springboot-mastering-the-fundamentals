@@ -9,6 +9,8 @@ import com.springbootfundamentals.store.repositories.UserRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 
+import java.util.HashSet;
+
 import org.springframework.stereotype.Service;
 
 import com.springbootfundamentals.store.entities.Address;
@@ -145,6 +147,15 @@ public class UserService {
         productRepository.save(product);
     }
 
-    
+    @Transactional // required to extend the transactional boundry of the findById method.
+    public void managingProductsAndWishlistsStep3() {
+        var user = userRepository.findById(1L).orElseThrow(); // find by id is transactional (user id may need changing)
+        var products = productRepository.findAll();
+
+        // set products as users favourite products (wishlist)
+        var productSet = new HashSet<Product>();
+        products.forEach(productSet::add);
+        user.setFaverouteProducts(productSet);
+    }
 }
 
