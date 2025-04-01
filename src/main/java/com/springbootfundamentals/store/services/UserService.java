@@ -1,6 +1,7 @@
 package com.springbootfundamentals.store.services;
 
 import com.springbootfundamentals.store.repositories.AddressRepository;
+import com.springbootfundamentals.store.repositories.ProductRepository;
 import com.springbootfundamentals.store.repositories.ProfileRepository;
 import com.springbootfundamentals.store.repositories.UserRepository;
 
@@ -10,6 +11,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.springbootfundamentals.store.entities.Address;
+import com.springbootfundamentals.store.entities.Category;
+import com.springbootfundamentals.store.entities.Product;
 import com.springbootfundamentals.store.entities.User;
 
 import lombok.AllArgsConstructor;
@@ -21,6 +24,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final ProfileRepository profileRepository;
     private final AddressRepository addressRepository;
+    private final ProductRepository productRepository;
     private final EntityManager entityManager;
 
     /**
@@ -111,5 +115,21 @@ public class UserService {
         user.removeAddress(address);
         userRepository.save(user);
     }
+
+    public void managingProductsAndWishlistsStep1() {
+        var category = Category.builder()
+        .name("history")
+        .build();
+
+        var product = Product.builder()
+        .name("book")
+        .description("book description")
+        .category(category)
+        .build();
+
+        productRepository.save(product);
+    }
+
+    
 }
 
