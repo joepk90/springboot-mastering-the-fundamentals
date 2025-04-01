@@ -24,7 +24,8 @@ public class RepositoryExamples {
 		// fetchingStategies();
         // understandingFetchStrategiesExercise();
         // persistingRelatedEntities();
-        deletingRelatedEntities();
+        // deletingRelatedEntities();
+        deletingRelatedEntitiesAndTheirOrphans();
     }
 
     public void usingRepositories() {
@@ -85,6 +86,11 @@ public class RepositoryExamples {
     public void deletingRelatedEntities() {
         var service = context.getBean(UserService.class);
         service.deleteRelated();
+    }
+
+    public void deletingRelatedEntitiesAndTheirOrphans() {
+        var service = context.getBean(UserService.class);
+        service.deleteRelatedAndOrphaned();
     }
 }
 

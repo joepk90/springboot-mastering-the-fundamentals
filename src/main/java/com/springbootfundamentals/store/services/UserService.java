@@ -102,5 +102,14 @@ public class UserService {
         System.out.println("test");
         userRepository.deleteById(1L); // id will depend on database entries
     }
+
+    @Transactional // required to get the address on the user record (address is fetched using lazy loading)
+    public void deleteRelatedAndOrphaned() {
+        // delete address from user (causes error as it creates an orphaned address record)
+        var user = userRepository.findById(1L).orElseThrow();  // id will depend on database entries
+        var address = user.getAddresses().getFirst();
+        user.removeAddress(address);
+        userRepository.save(user);
+    }
 }
 
