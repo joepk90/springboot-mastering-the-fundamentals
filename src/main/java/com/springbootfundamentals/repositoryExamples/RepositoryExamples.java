@@ -23,7 +23,8 @@ public class RepositoryExamples {
 		// managingTransactions();
 		// fetchingStategies();
         // understandingFetchStrategiesExercise();
-        persistingRelatedEntities();
+        // persistingRelatedEntities();
+        deletingRelatedEntities();
     }
 
     public void usingRepositories() {
@@ -79,6 +80,11 @@ public class RepositoryExamples {
     public void persistingRelatedEntities() {
         var service = context.getBean(UserService.class);
         service.persistRelationship();
+    }
+
+    public void deletingRelatedEntities() {
+        var service = context.getBean(UserService.class);
+        service.deleteRelated();
     }
 }
 

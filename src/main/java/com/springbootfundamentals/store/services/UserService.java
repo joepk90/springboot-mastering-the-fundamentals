@@ -97,5 +97,10 @@ public class UserService {
         // it doesn't save the related entities - in this case the address
         userRepository.save(user); 
     }
+
+    public void deleteRelated() {
+        System.out.println("test");
+        userRepository.deleteById(1L); // id will depend on database entries
+    }
 }
 
