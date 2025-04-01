@@ -9,6 +9,7 @@ import com.springbootfundamentals.store.repositories.UserRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 
+import java.math.BigDecimal;
 import java.util.HashSet;
 
 import org.springframework.stereotype.Service;
@@ -121,13 +122,12 @@ public class UserService {
     }
 
     public void managingProductsAndWishlistsStep1() {
-        var category = Category.builder()
-        .name("history")
-        .build();
+        var category = new Category("Category 1");
 
         var product = Product.builder()
-        .name("book")
-        .description("book description")
+        .name("Product 1")
+        .description("Description 1")
+        .price(BigDecimal.valueOf(10.99))
         .category(category)
         .build();
 
