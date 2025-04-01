@@ -138,4 +138,8 @@ public class User {
     )
     @Builder.Default // initialise the tags field on user instantiation (when using the builder method)
     private Set<Product> faverouteProducts = new HashSet<>();
+
+    public void addFaverouteProduct(Product product) {
+        faverouteProducts.add(product);   
+    }
 }

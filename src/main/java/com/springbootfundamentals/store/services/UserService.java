@@ -153,9 +153,9 @@ public class UserService {
         var products = productRepository.findAll();
 
         // set products as users favourite products (wishlist)
-        var productSet = new HashSet<Product>();
-        products.forEach(productSet::add);
-        user.setFaverouteProducts(productSet);
+        products.forEach(user::addFaverouteProduct);
+        userRepository.save(user);
+
     }
 
     public void managingProductsAndWishlistsStep4() {
