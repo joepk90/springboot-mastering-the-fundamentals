@@ -96,5 +96,7 @@ public class UserService {
         // by default. hibernate doesn't propergate the persist operation, meaning  when it saves the user
         // it doesn't save the related entities - in this case the address
         userRepository.save(user); 
+        addressRepository.save(address); // not a nice approach
     }
 }
+
