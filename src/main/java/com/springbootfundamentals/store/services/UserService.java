@@ -1,6 +1,7 @@
 package com.springbootfundamentals.store.services;
 
 import com.springbootfundamentals.store.repositories.AddressRepository;
+import com.springbootfundamentals.store.repositories.CategoryRepository;
 import com.springbootfundamentals.store.repositories.ProductRepository;
 import com.springbootfundamentals.store.repositories.ProfileRepository;
 import com.springbootfundamentals.store.repositories.UserRepository;
@@ -25,6 +26,7 @@ public class UserService {
     private final ProfileRepository profileRepository;
     private final AddressRepository addressRepository;
     private final ProductRepository productRepository;
+    private final CategoryRepository categoryRepository;
     private final EntityManager entityManager;
 
     /**
@@ -124,6 +126,18 @@ public class UserService {
         var product = Product.builder()
         .name("book")
         .description("book description")
+        .category(category)
+        .build();
+
+        productRepository.save(product);
+    }
+
+    public void managingProductsAndWishlistsStep2() {
+        var category = categoryRepository.findById(1L).orElseThrow();
+
+        var product = Product.builder()
+        .name("movie")
+        .description("movie description")
         .category(category)
         .build();
 

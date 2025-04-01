@@ -96,7 +96,8 @@ public class RepositoryExamples {
 
     public void managingProductsAndWishlistsExercise() {
         var service = context.getBean(UserService.class);
-        service.managingProductsAndWishlistsStep1();
+        // service.managingProductsAndWishlistsStep1();
+        service.managingProductsAndWishlistsStep2();
     }
 }
 
