@@ -77,9 +77,9 @@ mysql -u root -p
 
 In `DEV` databases are created automatically due to the `createDatabaseIfNotExist` flag.
 
-Database migrations currently need to be done manually - see the `db-migrate` make command. 
+In `DEV` database migrations are applied automatically (due to `spring-boot-devtools`). However they can also be applied manually - see the `db-migrate` make command. 
 
-If we want the application to run migrations against the database automatically, the following property can be used:
+If we want the application to run migrations against the database automatically in `PROD`, the following property can be used:
 ```
 spring.jpa.hibernate.ddl-auto=none # OPTIONS: create, create-drop, validate, update
 ```
