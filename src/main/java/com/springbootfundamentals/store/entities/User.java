@@ -56,7 +56,10 @@ public class User {
         mappedBy = "user",
         // cascade - required in order to persist the related address object when saving the object
         // using the UserRepository
-        cascade = CascadeType.PERSIST
+        cascade = {
+            CascadeType.PERSIST,
+            CascadeType.REMOVE // configures the app (not the db) to delete the address record when a user object is deleted
+        }
     ) 
     @Builder.Default // tells the builder to include these type of initialisations when creating an object
     private List<Address> addresses = new ArrayList<>();
@@ -111,7 +114,10 @@ public class User {
      */
 
     // OneToOne uses eager loading by default. 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(
+        mappedBy = "user",
+        cascade = CascadeType.REMOVE // configures the app (not the db) to delete the profile record when a user object is deleted
+    )
     private Profile profile;
     
 
