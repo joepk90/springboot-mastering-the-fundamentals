@@ -105,7 +105,16 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     // class: com.springbootfundamentals.store.dtos.ProductSummaryDTO@2a28e69e
 
     // List<ProductSummary> findByCategory(Category category); 
-    List<ProductSummaryDTO> findByCategory(Category category); 
+    // List<ProductSummaryDTO> findByCategory(Category category); 
+
+
+    // JPQL Query Examples
+
+    // @Query(value = "SELECT p from Product p WHERE p.category = :category")  // this causes eager loading
+    @Query(value = "SELECT p.id, p.name from Product p WHERE p.category = :category")  // this prevents eager loading as only the id and name are selected
+    List<ProductSummary> findByCategory(@Param("category") Category category); 
+
+    
     
 
 }
