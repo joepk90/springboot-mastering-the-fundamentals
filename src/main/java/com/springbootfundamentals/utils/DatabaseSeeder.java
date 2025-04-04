@@ -33,15 +33,15 @@ public class DatabaseSeeder {
 	}
 
 	@Transactional
-	public void createUser() {
+	public void createUser(String email) {
 
 		var userRepository = context.getBean(UserRepository.class);
 		var profileRepository = context.getBean(ProfileRepository.class);
 	
 		// User -> Tags ManyToMany relation requiried cascade = { CascadeType.PERSIST } added to User class
-		var tag = new Tag("tag2");
-		var tags = new HashSet<Tag>();
-		tags.add(tag);
+		// var tag = new Tag("tag2");
+		// var tags = new HashSet<Tag>();
+		// tags.add(tag);
 
 		var address = Address.builder()
             .street("street")
@@ -52,18 +52,19 @@ public class DatabaseSeeder {
 
 		var user = User.builder()
             .name("John Doe")
-            .email("john.doe18@example.com") // must be a unique email!
+            .email(email) // must be a unique email!
             .password("password")
             .build();
 		
 		// user.addTag("tag2");
-		user.setTags(tags);
+		// user.setTags(tags);
 		user.addAddress(address);
 
 		// User -> Profile OneToOne relation might require cascade = { CascadeType.PERSIST } added to User class
 		var profile = Profile.builder()
 			.bio("bio")
 			.dateOfBirth(LocalDate.of(1990, 1, 1))
+			.loyaltyPoints(15)
 			.build();
 
 			profile.setUser(user);

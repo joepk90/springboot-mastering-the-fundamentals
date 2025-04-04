@@ -95,6 +95,7 @@ public class User {
      *   for this entity relationship
      */
 
+    // @ManyToMany(cascade = { CascadeType.PERSIST }) // required for tags to be persisted when saving the user object (custom code)
     @ManyToMany
     @JoinTable(
         name = "user_tags",
