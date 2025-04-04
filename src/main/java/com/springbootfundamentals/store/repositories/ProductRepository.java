@@ -9,6 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import com.springbootfundamentals.store.entities.Product;
+import com.springbootfundamentals.store.dtos.ProductSummary;
 import com.springbootfundamentals.store.entities.Category;
 
 public interface ProductRepository extends CrudRepository<Product, Long> {
@@ -96,7 +97,8 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
      * Projections
      */
 
-    List<Product> findByCategory(Category category); 
+    // List<Product> findByCategory(Category category); // causes unneccesary eager loading
+    List<ProductSummary> findByCategory(Category category); 
 
 }
 
