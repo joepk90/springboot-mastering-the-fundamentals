@@ -176,6 +176,10 @@ public class UserService {
     public void fetchUser() {
         var user = userRepository.findByEmail("john.doe18@example.com").orElseThrow();
         System.out.println(user.getId());
+
+        // printing the whole uer object will cause 2 additional queries to be made due to the toString method looking at every field
+        // this has been prevented by overridin the toString method in the User class
+        System.out.println(user); // transactional boundry is required to get the user object
     }
 }
 
