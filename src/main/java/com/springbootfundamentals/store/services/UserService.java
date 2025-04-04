@@ -161,5 +161,10 @@ public class UserService {
     public void managingProductsAndWishlistsStep4() {
         productRepository.deleteById(1L); // (user id may need changing)
     }
+
+    @Transactional
+    public void updateProductPrices() {
+        productRepository.updatePriceByCategory(BigDecimal.valueOf(10), (byte)1);
+    }
 }
 

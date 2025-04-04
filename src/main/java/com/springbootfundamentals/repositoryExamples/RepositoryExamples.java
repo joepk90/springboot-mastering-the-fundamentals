@@ -26,7 +26,8 @@ public class RepositoryExamples {
         // persistingRelatedEntities();
         // deletingRelatedEntities();
         // deletingRelatedEntitiesAndTheirOrphans();
-        managingProductsAndWishlistsExercise();
+        // managingProductsAndWishlistsExercise();
+        writingCustomQueriesUsingQueryAnnotation();
     }
 
     public void usingRepositories() {
@@ -100,6 +101,15 @@ public class RepositoryExamples {
         // service.managingProductsAndWishlistsStep2();
         // service.managingProductsAndWishlistsStep3();
         service.managingProductsAndWishlistsStep4();
+    }
+
+    /**
+     * Writing Custom Queries
+     */
+
+     public void writingCustomQueriesUsingQueryAnnotation() {
+        var service = context.getBean(UserService.class);
+        service.updateProductPrices();
     }
 }
 
