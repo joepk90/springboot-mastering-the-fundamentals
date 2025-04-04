@@ -1,10 +1,10 @@
 package com.springbootfundamentals.store;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-
+// import com.springbootfundamentals.utils.DatabaseSeeder;
 import com.springbootfundamentals.repositoryExamples.RepositoryExamples;
-
 
 
 
@@ -16,6 +16,7 @@ public class StoreApplication {
 
 		var repositoryExamples = new RepositoryExamples(context);
 		repositoryExamples.main();
-		
+
+		// new DatabaseSeeder(context).createUser();
 	}
 }
