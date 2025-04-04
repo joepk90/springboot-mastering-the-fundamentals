@@ -181,5 +181,14 @@ public class UserService {
         // this has been prevented by overridin the toString method in the User class
         System.out.println(user); // transactional boundry is required to get the user object
     }
+
+    @Transactional
+    public void fetchUsers() {
+        var users = userRepository.findAll(); // one query to get all users, then several queries to get each users profile
+        users.forEach(u -> {
+            System.out.println(u);
+            u.getAddresses().forEach(System.out::println); // the a qdditional query is made for each address 
+        });
+    }
 }
 

@@ -29,7 +29,8 @@ public class RepositoryExamples {
         // managingProductsAndWishlistsExercise();
         // writingCustomQueriesUsingQueryAnnotation();
         // fetchingPartialDataWithProjections();
-        effienctlyLoadEntitiesWithEntityGraphAnotation();
+        // effienctlyLoadEntitiesWithEntityGraphAnotation();
+        avoidingTheNPlusOneProblem();
     }
 
     public void usingRepositories() {
@@ -122,6 +123,11 @@ public class RepositoryExamples {
     public void effienctlyLoadEntitiesWithEntityGraphAnotation() {
         var service = context.getBean(UserService.class);
         service.fetchUser();
+    }
+
+    public void avoidingTheNPlusOneProblem() {
+        var service = context.getBean(UserService.class);
+        service.fetchUsers();
     }
 }
 
