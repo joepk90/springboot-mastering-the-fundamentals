@@ -184,10 +184,18 @@ public class UserService {
 
     @Transactional
     public void fetchUsers() {
-        var users = userRepository.findAll(); // one query to get all users, then several queries to get each users profile
+        // var users = userRepository.findAll(); // one query to get all users, then several queries to get each users profile
+        // users.forEach(u -> {
+        //     System.out.println(u);
+        //     u.getAddresses().forEach(System.out::println); // the a qdditional query is made for each address 
+        // });
+
+        // due to the EntityGraph annotation, only one query is made to get all users and their addresses
+        // profile relationship on user has also been removed to prevent unnessecary queries
+        var users = userRepository.findAllWithAddresses();
         users.forEach(u -> {
             System.out.println(u);
-            u.getAddresses().forEach(System.out::println); // the a qdditional query is made for each address 
+            u.getAddresses().forEach(System.out::println);
         });
     }
 }
