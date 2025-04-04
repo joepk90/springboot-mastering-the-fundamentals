@@ -20,7 +20,7 @@ public class EntityRelationshipExamples {
 	public static void entityAnnotations() {
 
 		var faverouteProducts = new HashSet<Product>();
-		var user = new User(1L, "name", "email", "password", null, null, faverouteProducts);
+		var user = new User(1L, "name", "email", "password", null, null, null, faverouteProducts);
 		user.setName("john");
 		user.setEmail("john@example.com");
 		user.setPassword("password");

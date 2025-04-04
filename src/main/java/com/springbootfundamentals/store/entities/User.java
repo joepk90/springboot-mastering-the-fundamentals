@@ -116,13 +116,12 @@ public class User {
      * may not require this data
      */
 
-    // disabled to prevent unnessecary eager loading of porfile data as the user entity may not require this data
     // OneToOne uses eager loading by default. 
-    // @OneToOne(
-    //     mappedBy = "user",
-    //     cascade = CascadeType.REMOVE // configures the app (not the db) to delete the profile record when a user object is deleted
-    // )
-    // private Profile profile;
+    @OneToOne(
+        mappedBy = "user",
+        cascade = CascadeType.REMOVE // configures the app (not the db) to delete the profile record when a user object is deleted
+    )
+    private Profile profile;
     
 
     /**
