@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.springbootfundamentals.store.entities.Product;
 import com.springbootfundamentals.store.dtos.ProductSummary;
+import com.springbootfundamentals.store.dtos.ProductSummaryDTO;
 import com.springbootfundamentals.store.entities.Category;
 
 public interface ProductRepository extends CrudRepository<Product, Long> {
@@ -98,7 +99,14 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
      */
 
     // List<Product> findByCategory(Category category); // causes unneccesary eager loading
-    List<ProductSummary> findByCategory(Category category); 
+
+    // using a DTO interface or class works the same, although the return type is different
+    // interface: org.springframework.data.jpa.repository.query.AbstractJpaQuery$TupleConverter$TupleBackedMap@73cec85e
+    // class: com.springbootfundamentals.store.dtos.ProductSummaryDTO@2a28e69e
+
+    // List<ProductSummary> findByCategory(Category category); 
+    List<ProductSummaryDTO> findByCategory(Category category); 
+    
 
 }
 
