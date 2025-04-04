@@ -15,6 +15,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.springbootfundamentals.store.dtos.UserSummary;
 import com.springbootfundamentals.store.entities.Address;
 import com.springbootfundamentals.store.entities.Category;
 import com.springbootfundamentals.store.entities.Product;
@@ -213,9 +214,13 @@ public class UserService {
         // List<Profile> profiles = profileRepository.findByLoyaltyPointsGreaterThanOrderByUserEmail(min);
 
         // custom query method
-        List<Profile> profiles = profileRepository.findByLoyaltyPoints(min);
-        profiles.forEach(p -> System.out.println(p.getId() + p.getUser().getEmail()));
-        
+        // List<Profile> profiles = profileRepository.findByLoyaltyPoints(min);
+        // profiles.forEach(p -> System.out.println(p.getId() + p.getUser().getEmail()));
+
+        // custom query method with projection
+        List<UserSummary> profiles = profileRepository.findByLoyaltyPointsUsingProjection(min);
+        profiles.forEach(p -> System.out.println(p.getId() + p.getEmail()));
+
     }
     
 }
