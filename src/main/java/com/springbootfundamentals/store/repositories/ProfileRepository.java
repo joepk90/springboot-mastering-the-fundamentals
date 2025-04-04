@@ -10,7 +10,8 @@ public interface ProfileRepository extends CrudRepository<Profile, Long> {
     
     // derived query
     // - find profiles with loyalty points greater than a given value
-     @EntityGraph(attributePaths = "user")
-     List<Profile> findByLoyaltyPointsGreaterThan(Integer min);
+    @EntityGraph(attributePaths = "user")
+    List<Profile> findByLoyaltyPointsGreaterThanOrderByUserEmail(Integer min);
+
 
 }

@@ -209,7 +209,7 @@ public class UserService {
 
     @Transactional
     public void printLoyalProfiles(Integer min) {
-       List<Profile> profiles = profileRepository.findByLoyaltyPointsGreaterThan(min);
+       List<Profile> profiles = profileRepository.findByLoyaltyPointsGreaterThanOrderByUserEmail(min);
        profiles.forEach(p -> System.out.println(p.getId() + p.getUser().getEmail()));
     }
     
