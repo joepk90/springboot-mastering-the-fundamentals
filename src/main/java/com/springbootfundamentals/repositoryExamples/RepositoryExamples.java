@@ -1,5 +1,7 @@
 package com.springbootfundamentals.repositoryExamples;
 
+import java.math.BigDecimal;
+
 import org.springframework.context.ConfigurableApplicationContext;
 
 import com.springbootfundamentals.store.services.UserService;
@@ -31,7 +33,8 @@ public class RepositoryExamples {
         // fetchingPartialDataWithProjections();
         // effienctlyLoadEntitiesWithEntityGraphAnotation();
         // avoidingTheNPlusOneProblem();
-        callingStoredProcedures();
+        // callingStoredProcedures();
+        writingCustomQueriesExercise();
     }
 
     public void usingRepositories() {
@@ -134,6 +137,15 @@ public class RepositoryExamples {
     public void callingStoredProcedures() {
         var service = context.getBean(UserService.class);
         service.fetchUsersUsingStoredPrecedure();
+    }
+
+    /**
+     * Exercise - Writing Custom Queries
+     */
+
+    public void writingCustomQueriesExercise() {
+        var service = context.getBean(UserService.class);
+        service.printLoyalProfiles(2);
     }
 }
 

@@ -11,12 +11,14 @@ import jakarta.transaction.Transactional;
 
 import java.math.BigDecimal;
 import java.util.HashSet;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.springbootfundamentals.store.entities.Address;
 import com.springbootfundamentals.store.entities.Category;
 import com.springbootfundamentals.store.entities.Product;
+import com.springbootfundamentals.store.entities.Profile;
 import com.springbootfundamentals.store.entities.User;
 
 import lombok.AllArgsConstructor;
@@ -204,5 +206,11 @@ public class UserService {
         var products = productRepository.findProductsUsingStoredProcedure(BigDecimal.valueOf(1), BigDecimal.valueOf(15));
         products.forEach(System.out::println);
     }
+
+    public void printLoyalProfiles(Integer min) {
+       List<Profile> profiles = profileRepository.findByLoyaltyPointsGreaterThan(min);
+       profiles.forEach(p -> System.out.println(p.getId()));
+    }
+    
 }
 
