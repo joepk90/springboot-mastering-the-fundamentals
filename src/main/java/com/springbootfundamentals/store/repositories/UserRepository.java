@@ -6,7 +6,9 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
+import com.springbootfundamentals.store.dtos.UserSummary;
 import com.springbootfundamentals.store.entities.User;
 
 public interface UserRepository extends CrudRepository<User, Long> {
@@ -21,4 +23,9 @@ public interface UserRepository extends CrudRepository<User, Long> {
     @EntityGraph(attributePaths = "addresses")
     @Query("select u from User u")
     List<User> findAllWithAddresses();
+
+
+    // Projection queies
+    @Query("SELECT u.id as id, u.email as email FROM User u WHERE u.profile.loyaltyPoints > :loyaltypoints ORDER BY u.email")
+    List<UserSummary> findByLoyaltyUsers(@Param("loyaltypoints") Integer loyaltyPoints);
 }

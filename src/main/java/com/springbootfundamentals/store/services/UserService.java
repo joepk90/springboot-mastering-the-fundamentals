@@ -218,8 +218,12 @@ public class UserService {
         // profiles.forEach(p -> System.out.println(p.getId() + p.getUser().getEmail()));
 
         // custom query method with projection
-        List<UserSummary> profiles = profileRepository.findByLoyaltyPointsUsingProjection(min);
-        profiles.forEach(p -> System.out.println(p.getId() + p.getEmail()));
+        // List<UserSummary> profiles = profileRepository.findByLoyaltyPointsUsingProjection(min);
+        // profiles.forEach(p -> System.out.println(p.getId() + p.getEmail()));
+
+        // move query to UserRepository where it has become more appropriate
+        List<UserSummary> user = userRepository.findByLoyaltyUsers(min);
+        user.forEach(p -> System.out.println(p.getId() + p.getEmail()));
 
     }
     
