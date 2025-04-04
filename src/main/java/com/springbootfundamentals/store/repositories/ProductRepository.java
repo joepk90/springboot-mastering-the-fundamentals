@@ -9,6 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import com.springbootfundamentals.store.entities.Product;
+import com.springbootfundamentals.store.entities.Category;
 
 public interface ProductRepository extends CrudRepository<Product, Long> {
     
@@ -90,6 +91,13 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     @Modifying // tell hibernate this is a modify operation, not a select operation
     @Query(value = "UPDATE Product p SET p.price = :newPrice WHERE p.category.id = :categoryId")
     void updatePriceByCategory(BigDecimal newPrice, Byte categoryId);
+
+    /**
+     * Projections
+     */
+
+    List<Product> findByCategory(Category category); 
+
 }
 
 

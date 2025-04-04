@@ -25,6 +25,10 @@ public class Category {
         this.name = name;
     }
 
+    public Category(byte id) {
+        this.id = id;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment the id column
     @Column(name = "id")

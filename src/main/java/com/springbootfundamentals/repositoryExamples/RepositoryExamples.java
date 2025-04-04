@@ -27,7 +27,8 @@ public class RepositoryExamples {
         // deletingRelatedEntities();
         // deletingRelatedEntitiesAndTheirOrphans();
         // managingProductsAndWishlistsExercise();
-        writingCustomQueriesUsingQueryAnnotation();
+        // writingCustomQueriesUsingQueryAnnotation();
+        fetchingPartialDataWithProjections();
     }
 
     public void usingRepositories() {
@@ -110,6 +111,11 @@ public class RepositoryExamples {
      public void writingCustomQueriesUsingQueryAnnotation() {
         var service = context.getBean(UserService.class);
         service.updateProductPrices();
+    }
+
+    public void fetchingPartialDataWithProjections() {
+        var service = context.getBean(UserService.class);
+        service.fetchProducts();
     }
 }
 
