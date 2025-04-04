@@ -30,7 +30,8 @@ public class RepositoryExamples {
         // writingCustomQueriesUsingQueryAnnotation();
         // fetchingPartialDataWithProjections();
         // effienctlyLoadEntitiesWithEntityGraphAnotation();
-        avoidingTheNPlusOneProblem();
+        // avoidingTheNPlusOneProblem();
+        callingStoredProcedures();
     }
 
     public void usingRepositories() {
@@ -128,6 +129,11 @@ public class RepositoryExamples {
     public void avoidingTheNPlusOneProblem() {
         var service = context.getBean(UserService.class);
         service.fetchUsers();
+    }
+
+    public void callingStoredProcedures() {
+        var service = context.getBean(UserService.class);
+        service.fetchUsersUsingStoredPrecedure();
     }
 }
 

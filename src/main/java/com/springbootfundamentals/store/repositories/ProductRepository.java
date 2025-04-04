@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
@@ -121,6 +122,15 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     
     // due to the above issue - using DTO/projection interfaces are preferable if possible. classes should only be used
     // if you need to need to include additional logic to the DTO class
+
+    /**
+     * Stored Procedures
+     * - a stored procedure is a set of SQL statements that can be stored in the database and executed as a single unit
+     * - requires database migration to create the stored procedure
+     */
+
+     @Procedure("findProductsByPrice") // this is a stored procedure (a custom database function - see V10 migration file)
+     List<Product> findProductsUsingStoredProcedure(BigDecimal min, BigDecimal max);
 
 }
 
