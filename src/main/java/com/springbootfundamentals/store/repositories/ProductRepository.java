@@ -111,11 +111,16 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     // JPQL Query Examples
 
     // @Query(value = "SELECT p from Product p WHERE p.category = :category")  // this causes eager loading
-    @Query(value = "SELECT p.id, p.name from Product p WHERE p.category = :category")  // this prevents eager loading as only the id and name are selected
-    List<ProductSummary> findByCategory(@Param("category") Category category); 
+    // @Query(value = "SELECT p.id, p.name from Product p WHERE p.category = :category")  // this prevents eager loading as only the id and name are selected
+    // List<ProductSummary> findByCategory(@Param("category") Category category); 
 
+    // using dto/projection classes require slightly/verbose different syntax
+    @Query(value = "SELECT new com.springbootfundamentals.store.dtos.ProductSummaryDTO(p.id, p.name) from Product p WHERE p.category = :category")
+    // @Query(value = "SELECT new p.id, p.name from Product p WHERE p.category = :category") // DOES NOT WORK
+    List<ProductSummaryDTO> findByCategory(@Param("category") Category category); 
     
-    
+    // due to the above issue - using DTO/projection interfaces are preferable if possible. classes should only be used
+    // if you need to need to include additional logic to the DTO class
 
 }
 
