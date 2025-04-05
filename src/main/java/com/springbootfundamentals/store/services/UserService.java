@@ -13,6 +13,7 @@ import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.List;
 
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import com.springbootfundamentals.store.dtos.UserSummary;
@@ -226,6 +227,22 @@ public class UserService {
         user.forEach(p -> System.out.println(p.getId() + p.getEmail()));
 
     }
+
+    public void fetchProductsUsingExampleMatcher() {
+        var product = new Product();
+        product.setName("product");
+
+        // Example matcher - used to query by matching objects
+        var example = Example.of(product);
+
+        // the example matcher will match any product with a name that contains "product"
+        var products = productRepository.findAll(example);
+
+        // no products returned because no products match the example
+        products.forEach(System.out::println);
+        
+    }
+
     
 }
 

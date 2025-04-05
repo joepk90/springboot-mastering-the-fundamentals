@@ -3,10 +3,11 @@ package com.springbootfundamentals.store.repositories;
 import java.math.BigDecimal;
 import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.query.Procedure;
-import org.springframework.data.repository.CrudRepository;
+// import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import com.springbootfundamentals.store.entities.Product;
@@ -14,7 +15,7 @@ import com.springbootfundamentals.store.dtos.ProductSummary;
 import com.springbootfundamentals.store.dtos.ProductSummaryDTO;
 import com.springbootfundamentals.store.entities.Category;
 
-public interface ProductRepository extends CrudRepository<Product, Long> {
+public interface ProductRepository extends JpaRepository<Product, Long> {
     
     /**
      * Derived Queries

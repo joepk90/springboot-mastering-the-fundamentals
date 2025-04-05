@@ -34,7 +34,8 @@ public class RepositoryExamples {
         // effienctlyLoadEntitiesWithEntityGraphAnotation();
         // avoidingTheNPlusOneProblem();
         // callingStoredProcedures();
-        writingCustomQueriesExercise();
+        // writingCustomQueriesExercise();
+        queryByExample();
     }
 
     public void usingRepositories() {
@@ -146,6 +147,15 @@ public class RepositoryExamples {
     public void writingCustomQueriesExercise() {
         var service = context.getBean(UserService.class);
         service.printLoyalProfiles(2);
+    }
+
+    /**
+     * Dynamic Queries
+     */
+
+     public void queryByExample() {
+        var service = context.getBean(UserService.class);
+        service.fetchProductsUsingExampleMatcher();
     }
 }
 
