@@ -38,7 +38,8 @@ public class RepositoryExamples {
         // queryByExample();
         // dynamicQueriesUsingCriteriaApi();
         // composingQueriesUsingSpecificationApi();
-        sortingAndPagination();
+        // sortingAndPagination();
+        writingDynamicQueriesExercise();
     }
 
     public void usingRepositories() {
@@ -175,6 +176,15 @@ public class RepositoryExamples {
         var service = context.getBean(UserService.class);
         service.fetchSortedProducts(); 
         service.fetchPaginatedProducts(0, 10);
+    }
+
+     /**
+     * Exercise - Writing Custom Queries
+     */
+
+    public void writingDynamicQueriesExercise() {
+        var service = context.getBean(UserService.class);
+        service.fetchProductsByCategory();
     }
 }
 

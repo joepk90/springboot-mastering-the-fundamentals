@@ -263,8 +263,8 @@ public class UserService {
     }
 
     public void fetchProductsByCriteria() {
-        // var products = productRepository.findProductsByCriteria("prod", BigDecimal.valueOf(1), null);
-        var products = productRepository.findProductsByCriteria(null, BigDecimal.valueOf(1), BigDecimal.valueOf(10));
+        // var products = productRepository.findProductsByCriteria("prod", BigDecimal.valueOf(1), null, null);
+        var products = productRepository.findProductsByCriteria(null, BigDecimal.valueOf(1), BigDecimal.valueOf(10), null);
         products.forEach(System.out::println);
     }
 
@@ -307,6 +307,11 @@ public class UserService {
        var totalElements = page.getTotalElements();
        System.out.println("Total Pages: " + totalPages);
        System.out.println("Total Elements: " + totalElements);
+    }
+
+    public void fetchProductsByCategory() {
+        var products = productRepository.findProductsByCriteria(null, null, null, "category");
+        products.forEach(System.out::println);
     }
     
 }

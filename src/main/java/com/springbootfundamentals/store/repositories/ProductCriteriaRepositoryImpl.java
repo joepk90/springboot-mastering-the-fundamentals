@@ -23,7 +23,7 @@ public class ProductCriteriaRepositoryImpl implements ProductCriteriaRepository 
     private final EntityManager entityManager;
 
     @Override
-    public List<Product> findProductsByCriteria(String name, BigDecimal minPrice, BigDecimal maxPrice) {
+    public List<Product> findProductsByCriteria(String name, BigDecimal minPrice, BigDecimal maxPrice, String categoryName) {
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<Product> cq = cb.createQuery(Product.class);
 
@@ -46,6 +46,10 @@ public class ProductCriteriaRepositoryImpl implements ProductCriteriaRepository 
             // price <= maxPrice
             predicates.add(cb.lessThanOrEqualTo(root.get("price"), maxPrice));
         }
+
+        if (categoryName != null) {
+            predicates.add(cb.like(root.join("category").get("name"), "%" + categoryName + "%"));
+        }
         
         cq.select(root)
             .where(predicates.toArray(new Predicate[predicates.size()]));
@@ -57,6 +61,5 @@ public class ProductCriteriaRepositoryImpl implements ProductCriteriaRepository 
         return entityManager.createQuery(cq)
             .getResultList();
 
-    }
-    
+    }    
 }
