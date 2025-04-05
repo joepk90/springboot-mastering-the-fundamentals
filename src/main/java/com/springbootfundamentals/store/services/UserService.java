@@ -14,6 +14,7 @@ import java.util.HashSet;
 import java.util.List;
 
 import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
 import com.springbootfundamentals.store.dtos.UserSummary;
@@ -232,13 +233,17 @@ public class UserService {
         var product = new Product();
         product.setName("product");
 
-        // Example matcher - used to query by matching objects
-        var example = Example.of(product);
+        // match any string that contains the given string
+        var matcher = ExampleMatcher.matching()
+            .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING); 
+
+         // Example matcher - used to query by matching objects
+         var example = Example.of(product, matcher);
 
         // the example matcher will match any product with a name that contains "product"
         var products = productRepository.findAll(example);
 
-        // no products returned because no products match the example
+        // products are returned because several products match the example
         products.forEach(System.out::println);
         
     }
