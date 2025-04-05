@@ -169,7 +169,7 @@ public class RepositoryExamples {
 
     public void composingQueriesUsingSpecificationApi() {
         var service = context.getBean(UserService.class);
-        service.fetchProductsBySpecifications("prod", BigDecimal.valueOf(1), null); 
+        service.fetchProductsBySpecifications("prod", BigDecimal.valueOf(1), null, null); 
     }
 
     public void sortingAndPagination() {
@@ -184,7 +184,12 @@ public class RepositoryExamples {
 
     public void writingDynamicQueriesExercise() {
         var service = context.getBean(UserService.class);
+        
+        System.out.println("Fetching products by category name using criteria api");
         service.fetchProductsByCategory();
+
+        System.out.println("Fetching products by category name using specficiation api");
+        service.fetchProductsBySpecifications(null, null, null, "cat"); 
     }
 }
 

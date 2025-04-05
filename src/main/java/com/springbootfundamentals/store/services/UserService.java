@@ -268,7 +268,7 @@ public class UserService {
         products.forEach(System.out::println);
     }
 
-    public void fetchProductsBySpecifications(String name, BigDecimal minPrice, BigDecimal maxPrice) {
+    public void fetchProductsBySpecifications(String name, BigDecimal minPrice, BigDecimal maxPrice, String categoryName) {
         // starting point for the specification query
         Specification<Product> spec = Specification.where(null);
 
@@ -282,6 +282,10 @@ public class UserService {
 
         if (maxPrice != null) {
             spec = spec.and(ProductSpec.hasPriceLessThanOrEqualTo(maxPrice));
+        }
+
+        if (categoryName != null) {
+            spec = spec.and(ProductSpec.hasCategoryName(categoryName));
         }
 
         productRepository.findAll(spec).forEach(System.out::println);
