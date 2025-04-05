@@ -14,6 +14,7 @@ import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.List;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.jpa.domain.Specification;
@@ -283,6 +284,14 @@ public class UserService {
 
         productRepository.findAll(spec).forEach(System.out::println);
 
+    }
+
+    public void fetchSortedProducts() {
+        var sort = Sort.by("name", "price").and(
+            Sort.by("price").descending()
+        );
+
+        productRepository.findAll(sort).forEach(System.out::println);
     }
     
 }

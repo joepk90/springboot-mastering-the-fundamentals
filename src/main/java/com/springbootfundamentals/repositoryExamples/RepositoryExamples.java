@@ -37,7 +37,8 @@ public class RepositoryExamples {
         // writingCustomQueriesExercise();
         // queryByExample();
         // dynamicQueriesUsingCriteriaApi();
-        composingQueriesUsingSpecificationApi();
+        // composingQueriesUsingSpecificationApi();
+        sortingAndPagination();
     }
 
     public void usingRepositories() {
@@ -168,6 +169,11 @@ public class RepositoryExamples {
     public void composingQueriesUsingSpecificationApi() {
         var service = context.getBean(UserService.class);
         service.fetchProductsBySpecifications("prod", BigDecimal.valueOf(1), null); 
+    }
+
+    public void sortingAndPagination() {
+        var service = context.getBean(UserService.class);
+        service.fetchSortedProducts(); 
     }
 }
 
