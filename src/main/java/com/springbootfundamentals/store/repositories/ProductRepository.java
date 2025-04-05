@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.query.Procedure;
@@ -15,7 +16,7 @@ import com.springbootfundamentals.store.dtos.ProductSummary;
 import com.springbootfundamentals.store.dtos.ProductSummaryDTO;
 import com.springbootfundamentals.store.entities.Category;
 
-public interface ProductRepository extends JpaRepository<Product, Long>, ProductCriteriaRepository {
+public interface ProductRepository extends JpaRepository<Product, Long>, ProductCriteriaRepository, JpaSpecificationExecutor<Product> {
     
     /**
      * Derived Queries

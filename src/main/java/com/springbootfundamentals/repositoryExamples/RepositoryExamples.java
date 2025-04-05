@@ -36,7 +36,8 @@ public class RepositoryExamples {
         // callingStoredProcedures();
         // writingCustomQueriesExercise();
         // queryByExample();
-        dynamicQueriesUsingCriteriaApi();
+        // dynamicQueriesUsingCriteriaApi();
+        composingQueriesUsingSpecificationApi();
     }
 
     public void usingRepositories() {
@@ -162,6 +163,11 @@ public class RepositoryExamples {
     public void dynamicQueriesUsingCriteriaApi() {
         var service = context.getBean(UserService.class);
         service.fetchProductsByCriteria();
+    }
+
+    public void composingQueriesUsingSpecificationApi() {
+        var service = context.getBean(UserService.class);
+        service.fetchProductsBySpecifications("prod", BigDecimal.valueOf(1), null); 
     }
 }
 

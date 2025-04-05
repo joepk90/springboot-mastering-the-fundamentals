@@ -5,6 +5,7 @@ import com.springbootfundamentals.store.repositories.CategoryRepository;
 import com.springbootfundamentals.store.repositories.ProductRepository;
 import com.springbootfundamentals.store.repositories.ProfileRepository;
 import com.springbootfundamentals.store.repositories.UserRepository;
+import com.springbootfundamentals.store.repositories.specfications.ProductSpec;
 
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
@@ -15,6 +16,7 @@ import java.util.List;
 
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.springbootfundamentals.store.dtos.UserSummary;
@@ -261,6 +263,26 @@ public class UserService {
         // var products = productRepository.findProductsByCriteria("prod", BigDecimal.valueOf(1), null);
         var products = productRepository.findProductsByCriteria(null, BigDecimal.valueOf(1), BigDecimal.valueOf(10));
         products.forEach(System.out::println);
+    }
+
+    public void fetchProductsBySpecifications(String name, BigDecimal minPrice, BigDecimal maxPrice) {
+        // starting point for the specification query
+        Specification<Product> spec = Specification.where(null);
+
+        if (name != null) {
+            spec = spec.and(ProductSpec.hasName(name));
+        }
+
+        if (minPrice != null) {
+            spec = spec.and(ProductSpec.hasPriceGreaterThanOrEqualTo(minPrice));
+        }
+
+        if (maxPrice != null) {
+            spec = spec.and(ProductSpec.hasPriceLessThanOrEqualTo(maxPrice));
+        }
+
+        productRepository.findAll(spec).forEach(System.out::println);
+
     }
     
 }
