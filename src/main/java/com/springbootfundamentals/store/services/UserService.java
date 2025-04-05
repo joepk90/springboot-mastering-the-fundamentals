@@ -233,9 +233,18 @@ public class UserService {
         var product = new Product();
         product.setName("product");
 
-        // match any string that contains the given string
+        /**
+         * ExampleMatcher Limitations:
+         * - no support for nested properties
+         * - no sport for matching collections/maps
+         * - database-specific support for matching strings
+         * - exact matching is used for all otehr types (e.g. numbers, dates)
+         */
+        
         var matcher = ExampleMatcher.matching()
-            .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING); 
+            // .withIncludeNullValues() // include null values in the query
+            .withIgnorePaths("id", "description") // ignore id and description fields
+            .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING); // match any string that contains the given string
 
          // Example matcher - used to query by matching objects
          var example = Example.of(product, matcher);
