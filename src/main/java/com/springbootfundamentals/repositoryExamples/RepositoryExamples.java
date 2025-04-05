@@ -35,7 +35,8 @@ public class RepositoryExamples {
         // avoidingTheNPlusOneProblem();
         // callingStoredProcedures();
         // writingCustomQueriesExercise();
-        queryByExample();
+        // queryByExample();
+        dynamicQueriesUsingCriteriaApi();
     }
 
     public void usingRepositories() {
@@ -156,6 +157,11 @@ public class RepositoryExamples {
      public void queryByExample() {
         var service = context.getBean(UserService.class);
         service.fetchProductsUsingExampleMatcher();
+    }
+
+    public void dynamicQueriesUsingCriteriaApi() {
+        var service = context.getBean(UserService.class);
+        service.fetchProductsByCriteria();
     }
 }
 

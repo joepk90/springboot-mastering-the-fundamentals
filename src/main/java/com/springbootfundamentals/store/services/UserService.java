@@ -257,6 +257,10 @@ public class UserService {
         
     }
 
+    public void fetchProductsByCriteria() {
+        var products = productRepository.findProductsByCriteria(null, BigDecimal.valueOf(1), BigDecimal.valueOf(10));
+        products.forEach(System.out::println);
+    }
     
 }
 

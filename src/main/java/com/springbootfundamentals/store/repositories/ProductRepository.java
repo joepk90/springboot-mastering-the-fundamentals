@@ -15,7 +15,7 @@ import com.springbootfundamentals.store.dtos.ProductSummary;
 import com.springbootfundamentals.store.dtos.ProductSummaryDTO;
 import com.springbootfundamentals.store.entities.Category;
 
-public interface ProductRepository extends JpaRepository<Product, Long> {
+public interface ProductRepository extends JpaRepository<Product, Long>, ProductCriteriaRepository {
     
     /**
      * Derived Queries
