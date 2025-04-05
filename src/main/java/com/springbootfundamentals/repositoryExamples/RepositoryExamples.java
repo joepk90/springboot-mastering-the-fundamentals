@@ -174,6 +174,7 @@ public class RepositoryExamples {
     public void sortingAndPagination() {
         var service = context.getBean(UserService.class);
         service.fetchSortedProducts(); 
+        service.fetchPaginatedProducts(0, 10);
     }
 }
 
